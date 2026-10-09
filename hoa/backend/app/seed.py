@@ -18,6 +18,7 @@ from app.core.models import (
     PolicyThreshold,
 )
 from app.knowledge.ingest import run_ingest
+from app.core.user_seeder import seed_users
 
 logger = logging.getLogger(__name__)
 
@@ -90,6 +91,11 @@ def seed_db() -> None:
                 session.add(fd)
                 
         session.commit()
+    
+    print("Seeding demo users...")
+    with SessionLocal() as session:
+        seed_users(session)
+    
     print("Seeding complete.")
 
 if __name__ == "__main__":

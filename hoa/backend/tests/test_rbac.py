@@ -29,7 +29,7 @@ def test_rbac_billing_supervisor():
                 _visibility_clause(["Billing"], version_id)
             )
         )
-        assert res_billing.scalar_one_or_none() is None, "Billing role should not see this node"
+        assert res_billing.scalars().first() is None, "Billing role should not see this node"
         
         # Test visibility for 'Billing Supervisor'
         res_supervisor = session.execute(
@@ -38,7 +38,7 @@ def test_rbac_billing_supervisor():
                 _visibility_clause(["Billing Supervisor"], version_id)
             )
         )
-        assert res_supervisor.scalar_one_or_none() is not None, "Billing Supervisor role should see this node"
+        assert res_supervisor.scalars().first() is not None, "Billing Supervisor role should see this node"
         
         # Also verify that a generic node (visible to ALL) is visible to 'Billing'
         res = session.execute(
@@ -55,4 +55,4 @@ def test_rbac_billing_supervisor():
                 _visibility_clause(["Billing"], version_id)
             )
         )
-        assert res_generic.scalar_one_or_none() is not None, "Billing role should see ALL nodes"
+        assert res_generic.scalars().first() is not None, "Billing role should see ALL nodes"

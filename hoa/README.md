@@ -35,3 +35,45 @@ Modular monolith. Backend modules communicate only through each module's `api.py
 Pipeline: **Guard → Understand → Retrieve → Verify → Decide → Generate → Record**
 
 Every message ends in exactly one outcome: `ANSWER`, `GUIDE`, `ROUTE`, or `REFUSE`.
+
+## Demo Accounts
+
+> **All passwords:** `Demo@1234`
+
+### Application Roles
+
+| Email | App Role | Notes |
+|---|---|---|
+| `admin@demo` | **admin** | Full access |
+| `agent@demo` | **agent** | Tickets + chat |
+| `frontoffice@demo` | employee | Front Office dept |
+| `admission@demo` | employee | Admission dept |
+| `discharge@demo` | employee | Discharge dept |
+| `billing@demo` | employee | Billing dept |
+| `billing.super@demo` | employee | **Dual-hat**: Billing + Billing Supervisor |
+| `insurance@demo` | employee | Insurance/TPA dept |
+| `itsupport@demo` | employee | IT Support dept |
+| `lab@demo` | employee | Lab dept |
+| `radiology@demo` | employee | Radiology dept |
+| `quality@demo` | employee | Quality dept |
+| `opsmanager@demo` | employee | Operations Manager dept |
+
+### Persona Switching
+
+Users with multiple dept roles (e.g. `billing.super@demo`) can switch their active role via `POST /auth/persona`. The new token carries the switched `active_dept_role`, which gates knowledge-graph retrieval.
+
+### Permission Map
+
+| Permission | employee | agent | admin |
+|---|---|---|---|
+| `chat:use` | ✅ | ✅ | ✅ |
+| `feedback:write` | ✅ | ✅ | ✅ |
+| `tickets:read` | ❌ | ✅ | ✅ |
+| `tickets:update` | ❌ | ✅ | ✅ |
+| `analytics:read` | ❌ | ❌ | ✅ |
+| `audit:read` | ❌ | ❌ | ✅ |
+| `audit:verify` | ❌ | ❌ | ✅ |
+| `knowledge:read` | ❌ | ❌ | ✅ |
+| `knowledge:write` | ❌ | ❌ | ✅ |
+| `users:manage` | ❌ | ❌ | ✅ |
+| `system:manage` | ❌ | ❌ | ✅ |
