@@ -1,0 +1,92 @@
+# ──────────────────────────────────────────────────────────────
+# mapping.yaml – sheet-to-node/edge mapping
+# Swap column names here to adapt a real workbook without
+# changing ingest code.
+# ──────────────────────────────────────────────────────────────
+
+articles:
+  sheet: Articles
+  columns:
+    id:             id
+    title:          title
+    body:           body
+    department:     department
+    type:           type            # policy | SOP | guideline
+    status:         status          # approved | draft | retired
+    version:        version
+    effective_date: effective_date  # YYYY-MM-DD
+    review_date:    review_date
+    owner:          owner
+    visible_roles:  visible_roles   # comma-sep role names or "ALL"
+    conflict_key:   conflict_key    # optional; shared key triggers conflict detection
+    supersedes:     supersedes      # optional; ID of the article this one replaces
+
+workflows:
+  sheet: Workflows
+  columns:
+    id:              id
+    title:           title
+    description:     description
+    department:      department
+    owner_team:      owner_team
+    escalation_team: escalation_team
+    article_id:      article_id     # governing article
+    system:          system
+    form_required:   form_required
+
+steps:
+  sheet: Steps
+  columns:
+    workflow_id:  workflow_id
+    step_order:   step_order
+    title:        title
+    description:  description
+    team:         team
+    system:       system
+    form:         form
+
+step_fields:
+  sheet: StepFields
+  columns:
+    workflow_id: workflow_id
+    step_order:  step_order
+    field_name:  field_name
+    required:    required
+
+field_definitions:
+  sheet: FieldDefinitions
+  columns:
+    name:             name
+    label:            label
+    field_type:       field_type        # text | enum | date | regex | number
+    allowed_values:   allowed_values    # pipe-separated for enum
+    required:         required          # TRUE | FALSE
+    sensitive:        sensitive         # TRUE | FALSE – triggers vault storage
+    validation_regex: validation_regex  # optional
+
+routing_rules:
+  sheet: RoutingRules
+  columns:
+    issue_type:      issue_type
+    condition:       condition
+    target_team:     target_team
+    priority:        priority
+    escalation_team: escalation_team
+
+policy_thresholds:
+  sheet: PolicyThresholds
+  columns:
+    key:         key
+    value:       value
+    description: description
+
+operations_requests:
+  sheet: OperationsRequests
+  columns:
+    id:               id
+    request_text:     request_text
+    correct_team:     correct_team
+    correct_outcome:  correct_outcome   # ANSWER | GUIDE | ROUTE | REFUSE
+    correct_workflow: correct_workflow  # workflow id or blank
+    intent:           intent
+    notes:            notes

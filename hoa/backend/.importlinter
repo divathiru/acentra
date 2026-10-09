@@ -1,0 +1,30 @@
+[importlinter]
+root_packages =
+    app
+
+[importlinter:contract:module-boundaries]
+name = Modules talk only through api.py
+type = independence
+modules =
+    app.guard
+    app.knowledge
+    app.orchestrator
+    app.workflow
+    app.ticketing
+    app.audit
+    app.llm
+    app.analytics
+    app.eval
+ignore_imports =
+    app.*.api -> app.core
+    app.*.api -> app.core.config
+    app.*.api -> app.core.database
+    app.*.api -> app.core.models
+    app.orchestrator.api -> app.guard.api
+    app.orchestrator.api -> app.knowledge.api
+    app.orchestrator.api -> app.workflow.api
+    app.orchestrator.api -> app.ticketing.api
+    app.orchestrator.api -> app.audit.api
+    app.orchestrator.api -> app.llm.api
+    app.orchestrator.api -> app.analytics.api
+    app.main -> app.*

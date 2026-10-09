@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-teal: 20 128 138;       /* #14808A */
+    --color-answer: 20 128 138;     /* teal */
+    --color-guide: 59 130 246;      /* blue-500 */
+    --color-route: 245 158 11;      /* amber-500 */
+    --color-refuse: 244 63 94;      /* rose-500 */
+  }
+
+  body {
+    @apply min-h-screen;
+  }
+}

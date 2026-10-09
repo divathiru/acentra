@@ -1,0 +1,72 @@
+# ──────────────────────────────────────────────────────────────
+# domain.yaml – vocabulary, clinical contact, department owners
+# Column names are intentionally decoupled from workbook columns
+# (mapping.yaml governs column-to-field mapping).
+# ──────────────────────────────────────────────────────────────
+
+# Clinical terms that trigger an automatic REFUSE outcome
+clinical_terms:
+  - diagnose
+  - diagnosis
+  - prescribe
+  - prescription
+  - medication
+  - dosage
+  - dose
+  - symptom
+  - treatment
+  - prognosis
+  - antibiotic
+  - analgesic
+  - therapy
+  - clinical
+  - medical advice
+  - lab result interpretation
+  - differential
+
+# Prompt-injection patterns (regex, case-insensitive)
+prompt_injection_patterns:
+  - "ignore (all |previous |your )?instructions"
+  - "you are now (a |an )?(doctor|physician|medical|unrestricted)"
+  - "pretend (you are|to be) (a |an )?(doctor|physician|medical)"
+  - "forget (your |all )?guidelines"
+  - "act as if you have no restrictions"
+  - "disregard (your |all )?previous"
+  - "jailbreak"
+  - "\\[system\\]"
+  - "<system>"
+
+# Fixed REFUSE reply template (rule 4 — never invent clinical advice)
+clinical_refuse_template: >
+  I'm not able to provide clinical or medical advice. Please contact your
+  attending physician or call the Clinical Operations desk at {phone}.
+  For emergencies, dial {emergency_number}.
+
+clinical_contact:
+  phone: "+1-800-HOA-CLIN (555-2546)"
+  emergency_number: "911"
+  email: "clinical-ops@hospital-synthetic.example"
+
+# Default routing for unknown intents
+default_route:
+  team: "Department Operations Head"
+  urgency: "normal"
+
+# Department owners (email alias)
+department_owners:
+  Admission: "admissions@hospital-synthetic.example"
+  Discharge: "discharge@hospital-synthetic.example"
+  Billing: "billing@hospital-synthetic.example"
+  "Insurance/TPA": "insurance@hospital-synthetic.example"
+  Radiology: "radiology@hospital-synthetic.example"
+  Lab: "lab@hospital-synthetic.example"
+  IT: "it-support@hospital-synthetic.example"
+  Quality: "quality@hospital-synthetic.example"
+  Operations: "operations@hospital-synthetic.example"
+  "Front Office": "frontoffice@hospital-synthetic.example"
+
+# System settings to seed
+system_settings:
+  app.name: "Healthcare Operations Assistant"
+  app.version: "0.1.0"
+  rbac.visibility_sentinel: "ALL"
