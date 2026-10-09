@@ -1,0 +1,7 @@
+{
+  "verify_weight_sim": 0.4,
+  "verify_weight_cov": 0.4,
+  "verify_weight_ent": 0.2,
+  "verify_band_high": 0.7,
+  "verify_band_medium": 0.45
+}

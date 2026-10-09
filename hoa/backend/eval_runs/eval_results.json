@@ -1,0 +1,2369 @@
+{
+  "status": "completed",
+  "run_id": "5d233c35-fd4d-4dae-aa96-656b505553b9",
+  "split": "seed",
+  "timestamp": "2026-10-09T02:29:23Z",
+  "ablation_summary": [
+    {
+      "config_name": "Config A (Vector-Only)",
+      "n": 59,
+      "routing_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "routing_accuracy_pct": 0.0,
+      "outcome_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "outcome_accuracy_pct": 0.0,
+      "citation_validity": "100.0% [93.9% - 100.0%] (n=59)",
+      "citation_validity_pct": 100.0,
+      "five_question_coverage": "0.0% [0.0% - 79.3%] (n=1)",
+      "unsupported_answer_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate_pct": 0.0,
+      "latency_deterministic_p50_ms": 21.5,
+      "latency_deterministic_p95_ms": 44.8,
+      "latency_llm_p50_ms": 0.0,
+      "latency_llm_p95_ms": 0.0,
+      "results": [
+        {
+          "case_id": 399,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 43.29182999936165
+        },
+        {
+          "case_id": 400,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.4477150006569
+        },
+        {
+          "case_id": 401,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 18.81353099452099
+        },
+        {
+          "case_id": 402,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 43.91939800552791
+        },
+        {
+          "case_id": 403,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 54.92953700013459
+        },
+        {
+          "case_id": 404,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 51.46984000020893
+        },
+        {
+          "case_id": 405,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 26.117836001503747
+        },
+        {
+          "case_id": 406,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 14.060011999390554
+        },
+        {
+          "case_id": 407,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 14.756734999537002
+        },
+        {
+          "case_id": 408,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 41.014902002643794
+        },
+        {
+          "case_id": 409,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 42.18676000164123
+        },
+        {
+          "case_id": 410,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 43.30654299701564
+        },
+        {
+          "case_id": 411,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.18658299779054
+        },
+        {
+          "case_id": 412,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.257604002254084
+        },
+        {
+          "case_id": 413,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.308000996010378
+        },
+        {
+          "case_id": 414,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.72425800038036
+        },
+        {
+          "case_id": 415,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.51452299871016
+        },
+        {
+          "case_id": 416,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 39.89440300210845
+        },
+        {
+          "case_id": 417,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 37.2178219986381
+        },
+        {
+          "case_id": 418,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-002"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 50.41542399703758
+        },
+        {
+          "case_id": 419,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.62102099484764
+        },
+        {
+          "case_id": 420,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 11.601273996348027
+        },
+        {
+          "case_id": 421,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing Supervisor",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 10.44129300134955
+        },
+        {
+          "case_id": 422,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 37.45510899898363
+        },
+        {
+          "case_id": 423,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 44.17095399548998
+        },
+        {
+          "case_id": 424,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.57869199477136
+        },
+        {
+          "case_id": 425,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 17.085464001866058
+        },
+        {
+          "case_id": 426,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 14.640631001384463
+        },
+        {
+          "case_id": 427,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 11.861532999319024
+        },
+        {
+          "case_id": 428,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.402724998537451
+        },
+        {
+          "case_id": 429,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.970761996461079
+        },
+        {
+          "case_id": 430,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.896428997919429
+        },
+        {
+          "case_id": 431,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 30.823081004200503
+        },
+        {
+          "case_id": 432,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 36.178091999317985
+        },
+        {
+          "case_id": 433,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 27.770692999183666
+        },
+        {
+          "case_id": 434,
+          "query": "",
+          "expected": {
+            "correct_team": "Front Office",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.630405997508205
+        },
+        {
+          "case_id": 435,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.985417999327183
+        },
+        {
+          "case_id": 436,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 14.185858999553602
+        },
+        {
+          "case_id": 437,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.21016700239852
+        },
+        {
+          "case_id": 438,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.213190002716146
+        },
+        {
+          "case_id": 439,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 14.105560003372375
+        },
+        {
+          "case_id": 440,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.082383000233676
+        },
+        {
+          "case_id": 441,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.633449998451397
+        },
+        {
+          "case_id": 442,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 10.309388999303337
+        },
+        {
+          "case_id": 443,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.374139005260076
+        },
+        {
+          "case_id": 444,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 18.274542002473027
+        },
+        {
+          "case_id": 445,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 11.334273003740236
+        },
+        {
+          "case_id": 446,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.123993001296185
+        },
+        {
+          "case_id": 447,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 18.551681998360436
+        },
+        {
+          "case_id": 448,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 21.48775800014846
+        },
+        {
+          "case_id": 449,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.918664005876053
+        },
+        {
+          "case_id": 450,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.104622004320845
+        },
+        {
+          "case_id": 451,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.184754998306744
+        },
+        {
+          "case_id": 452,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.932965002430137
+        },
+        {
+          "case_id": 453,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.726131995616015
+        },
+        {
+          "case_id": 454,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.23986599833006
+        },
+        {
+          "case_id": 455,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.615096001070924
+        },
+        {
+          "case_id": 456,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 29.399854996881913
+        },
+        {
+          "case_id": 457,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 38.95029799605254
+        }
+      ]
+    },
+    {
+      "config_name": "Config B (Hybrid)",
+      "n": 59,
+      "routing_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "routing_accuracy_pct": 0.0,
+      "outcome_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "outcome_accuracy_pct": 0.0,
+      "citation_validity": "100.0% [93.9% - 100.0%] (n=59)",
+      "citation_validity_pct": 100.0,
+      "five_question_coverage": "0.0% [0.0% - 79.3%] (n=1)",
+      "unsupported_answer_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate_pct": 0.0,
+      "latency_deterministic_p50_ms": 31.2,
+      "latency_deterministic_p95_ms": 53.1,
+      "latency_llm_p50_ms": 0.0,
+      "latency_llm_p95_ms": 0.0,
+      "results": [
+        {
+          "case_id": 399,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 46.82301799766719
+        },
+        {
+          "case_id": 400,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 44.35912399640074
+        },
+        {
+          "case_id": 401,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.116951997508295
+        },
+        {
+          "case_id": 402,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.12833700509509
+        },
+        {
+          "case_id": 403,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 36.08690699911676
+        },
+        {
+          "case_id": 404,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.583666996273678
+        },
+        {
+          "case_id": 405,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.24844200059306
+        },
+        {
+          "case_id": 406,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 47.35430000437191
+        },
+        {
+          "case_id": 407,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 32.39734000089811
+        },
+        {
+          "case_id": 408,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 48.51450300338911
+        },
+        {
+          "case_id": 409,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.00657500262605
+        },
+        {
+          "case_id": 410,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.50785499828635
+        },
+        {
+          "case_id": 411,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.06614399864338
+        },
+        {
+          "case_id": 412,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 49.53207200014731
+        },
+        {
+          "case_id": 413,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 39.00534800050082
+        },
+        {
+          "case_id": 414,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.428446001256816
+        },
+        {
+          "case_id": 415,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.51012399594765
+        },
+        {
+          "case_id": 416,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.234728000010364
+        },
+        {
+          "case_id": 417,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.583435995329637
+        },
+        {
+          "case_id": 418,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-002"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.448232997907326
+        },
+        {
+          "case_id": 419,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.32688999781385
+        },
+        {
+          "case_id": 420,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.997357002168428
+        },
+        {
+          "case_id": 421,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing Supervisor",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 17.544761998578906
+        },
+        {
+          "case_id": 422,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 41.12566100229742
+        },
+        {
+          "case_id": 423,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 31.23331600363599
+        },
+        {
+          "case_id": 424,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.089352998998947
+        },
+        {
+          "case_id": 425,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.41377600270789
+        },
+        {
+          "case_id": 426,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.21761099685682
+        },
+        {
+          "case_id": 427,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 39.813288996811025
+        },
+        {
+          "case_id": 428,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 40.64844099775655
+        },
+        {
+          "case_id": 429,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.4016780044185
+        },
+        {
+          "case_id": 430,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 31.363993999548256
+        },
+        {
+          "case_id": 431,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 41.640103998361155
+        },
+        {
+          "case_id": 432,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 47.34328400081722
+        },
+        {
+          "case_id": 433,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 43.13312500016764
+        },
+        {
+          "case_id": 434,
+          "query": "",
+          "expected": {
+            "correct_team": "Front Office",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 40.41444400354521
+        },
+        {
+          "case_id": 435,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.17067400185624
+        },
+        {
+          "case_id": 436,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.57870699639898
+        },
+        {
+          "case_id": 437,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 47.3785870053689
+        },
+        {
+          "case_id": 438,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 64.97181600570912
+        },
+        {
+          "case_id": 439,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.39585199963767
+        },
+        {
+          "case_id": 440,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.09211899753427
+        },
+        {
+          "case_id": 441,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 17.05231399682816
+        },
+        {
+          "case_id": 442,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.429430006013718
+        },
+        {
+          "case_id": 443,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 43.600641998637
+        },
+        {
+          "case_id": 444,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 53.058286001032684
+        },
+        {
+          "case_id": 445,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 59.921460997429676
+        },
+        {
+          "case_id": 446,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 53.495514002861455
+        },
+        {
+          "case_id": 447,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 38.97116500593256
+        },
+        {
+          "case_id": 448,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.585324995219707
+        },
+        {
+          "case_id": 449,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.205542003561277
+        },
+        {
+          "case_id": 450,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 30.100945004960522
+        },
+        {
+          "case_id": 451,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 31.51248300127918
+        },
+        {
+          "case_id": 452,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.69595799490344
+        },
+        {
+          "case_id": 453,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 21.9956419969094
+        },
+        {
+          "case_id": 454,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.06649200222455
+        },
+        {
+          "case_id": 455,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.282735994143877
+        },
+        {
+          "case_id": 456,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 21.29828900069697
+        },
+        {
+          "case_id": 457,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.691228998359293
+        }
+      ]
+    },
+    {
+      "config_name": "Config C (Hybrid + Graph)",
+      "n": 59,
+      "routing_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "routing_accuracy_pct": 0.0,
+      "outcome_accuracy": "0.0% [0.0% - 6.1%] (n=59)",
+      "outcome_accuracy_pct": 0.0,
+      "citation_validity": "100.0% [93.9% - 100.0%] (n=59)",
+      "citation_validity_pct": 100.0,
+      "five_question_coverage": "0.0% [0.0% - 79.3%] (n=1)",
+      "unsupported_answer_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate": "0.0% [0.0% - 79.3%] (n=1)",
+      "safety_pass_rate_pct": 0.0,
+      "latency_deterministic_p50_ms": 24.2,
+      "latency_deterministic_p95_ms": 37.6,
+      "latency_llm_p50_ms": 0.0,
+      "latency_llm_p95_ms": 0.0,
+      "results": [
+        {
+          "case_id": 399,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 36.79258200281765
+        },
+        {
+          "case_id": 400,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.441190001089126
+        },
+        {
+          "case_id": 401,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.311372001538984
+        },
+        {
+          "case_id": 402,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 47.78559199621668
+        },
+        {
+          "case_id": 403,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.85128500079736
+        },
+        {
+          "case_id": 404,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.292312006058637
+        },
+        {
+          "case_id": 405,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.867342001816723
+        },
+        {
+          "case_id": 406,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.86461999412859
+        },
+        {
+          "case_id": 407,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 21.928721005679108
+        },
+        {
+          "case_id": 408,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.35495100467233
+        },
+        {
+          "case_id": 409,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.700621998112183
+        },
+        {
+          "case_id": 410,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.003367001772858
+        },
+        {
+          "case_id": 411,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.45637499820441
+        },
+        {
+          "case_id": 412,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.00813599524554
+        },
+        {
+          "case_id": 413,
+          "query": "",
+          "expected": {
+            "correct_team": "Clinical Ops",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.180387001251802
+        },
+        {
+          "case_id": 414,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.107535999268293
+        },
+        {
+          "case_id": 415,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.30572200298775
+        },
+        {
+          "case_id": 416,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.953401999373455
+        },
+        {
+          "case_id": 417,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.70109399978537
+        },
+        {
+          "case_id": 418,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-002"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 27.790722000645474
+        },
+        {
+          "case_id": 419,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 21.567014999163803
+        },
+        {
+          "case_id": 420,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 26.527608999458607
+        },
+        {
+          "case_id": 421,
+          "query": "",
+          "expected": {
+            "correct_team": "Billing Supervisor",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 26.66783399763517
+        },
+        {
+          "case_id": 422,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 24.80379900225671
+        },
+        {
+          "case_id": 423,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 29.878856999857817
+        },
+        {
+          "case_id": 424,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.990480001084507
+        },
+        {
+          "case_id": 425,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.885346997412853
+        },
+        {
+          "case_id": 426,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.699176000372972
+        },
+        {
+          "case_id": 427,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 18.949994999275077
+        },
+        {
+          "case_id": 428,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.211188999994192
+        },
+        {
+          "case_id": 429,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 31.64699600165477
+        },
+        {
+          "case_id": 430,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.45040000224253
+        },
+        {
+          "case_id": 431,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.513967000122648
+        },
+        {
+          "case_id": 432,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 20.665269999881275
+        },
+        {
+          "case_id": 433,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 19.482902003801428
+        },
+        {
+          "case_id": 434,
+          "query": "",
+          "expected": {
+            "correct_team": "Front Office",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 45.287544999155216
+        },
+        {
+          "case_id": 435,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-003"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.217298998555634
+        },
+        {
+          "case_id": 436,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 34.933990995341446
+        },
+        {
+          "case_id": 437,
+          "query": "",
+          "expected": {
+            "correct_team": "Quality",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 56.90362500172341
+        },
+        {
+          "case_id": 438,
+          "query": "",
+          "expected": {
+            "correct_team": "Lab",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.002947998174932
+        },
+        {
+          "case_id": 439,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 35.8892209987971
+        },
+        {
+          "case_id": 440,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 30.595035997976083
+        },
+        {
+          "case_id": 441,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.132856996904593
+        },
+        {
+          "case_id": 442,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.489112001494505
+        },
+        {
+          "case_id": 443,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 25.747428997419775
+        },
+        {
+          "case_id": 444,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 26.874221999605652
+        },
+        {
+          "case_id": 445,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 28.134813001088332
+        },
+        {
+          "case_id": 446,
+          "query": "",
+          "expected": {
+            "correct_team": "Operations Manager",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 11.026117994333617
+        },
+        {
+          "case_id": 447,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.004428004729562
+        },
+        {
+          "case_id": 448,
+          "query": "",
+          "expected": {
+            "correct_team": "Insurance/TPA",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.311223996221088
+        },
+        {
+          "case_id": 449,
+          "query": "",
+          "expected": {
+            "correct_team": "IT",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 13.05034699907992
+        },
+        {
+          "case_id": 450,
+          "query": "",
+          "expected": {
+            "correct_team": "Discharge",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 12.157784003647976
+        },
+        {
+          "case_id": 451,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 11.566984998353291
+        },
+        {
+          "case_id": 452,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-001"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 32.63038799923379
+        },
+        {
+          "case_id": 453,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "ROUTE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.554672999831382
+        },
+        {
+          "case_id": 454,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 23.250334001204465
+        },
+        {
+          "case_id": 455,
+          "query": "",
+          "expected": {
+            "correct_team": "IT Support",
+            "correct_outcome": "GUIDE",
+            "correct_workflow": "W-004"
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 22.1196400016197
+        },
+        {
+          "case_id": 456,
+          "query": "",
+          "expected": {
+            "correct_team": "N/A",
+            "correct_outcome": "REFUSE",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 29.66532899881713
+        },
+        {
+          "case_id": 457,
+          "query": "",
+          "expected": {
+            "correct_team": "Radiology",
+            "correct_outcome": "ANSWER",
+            "correct_workflow": ""
+          },
+          "actual_outcome": "ROUTE",
+          "routing_match": false,
+          "outcome_match": false,
+          "elapsed_ms": 27.863254996191245
+        }
+      ]
+    }
+  ]
+}

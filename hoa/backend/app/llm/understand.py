@@ -52,11 +52,17 @@ class QueryIntent(BaseModel):
 
 # ─── Rule-based fallback ───────────────────────────────────────────────────────
 
+# Workflow patterns require an explicit intent verb (start/begin/initiate/submit/open/request)
+_WORKFLOW_START_RE = re.compile(
+    r"\b(start|begin|initiate|submit|open|request|i need to|i want to|can you start|launch)\b",
+    re.I,
+)
+
 _WORKFLOW_PATTERNS: List[tuple] = [
-    ("mri_preauth", [r"\bmri\b.*\bauth", r"\bpre[-\s]?auth.*\bmri"]),
+    ("mri_preauth", [r"\bmri\b.*\bauth", r"\bpre[-\s]?auth.*\bmri", r"\bpre.?author"]),
     ("discharge_billing", [r"\bdischarge\b.*\bbilling", r"\bbilling.*\bdischarge"]),
     ("specimen_rejection", [r"\bspecimen\b.*\breject", r"\breject.*\bspecimen"]),
-    ("it_his_access", [r"\b(it|his)\b.*\baccess\b", r"\baccess\b.*\b(his|system)\b"]),
+    ("it_his_access", [r"\b(it|his)\b.*\baccess request\b", r"\brequest.*\baccess.*\b(his|system)\b"]),
 ]
 
 _URGENCY_RE = re.compile(r"\b(urgent|asap|emergency|critical|immediate|stat)\b", re.I)
@@ -79,16 +85,17 @@ def _rule_based_intent(text: str) -> QueryIntent:
     else:
         sentiment = "neutral"
 
-    # workflow trigger
-    for wf_id, patterns in _WORKFLOW_PATTERNS:
-        for pat in patterns:
-            if re.search(pat, low):
-                return QueryIntent(
-                    kind="start_workflow",
-                    workflow_id=wf_id,
-                    urgency=urgency,
-                    sentiment=sentiment,
-                )
+    # Workflow trigger — only when user explicitly wants to START a workflow
+    if _WORKFLOW_START_RE.search(text):
+        for wf_id, patterns in _WORKFLOW_PATTERNS:
+            for pat in patterns:
+                if re.search(pat, low):
+                    return QueryIntent(
+                        kind="start_workflow",
+                        workflow_id=wf_id,
+                        urgency=urgency,
+                        sentiment=sentiment,
+                    )
 
     if _STATUS_RE.search(text):
         return QueryIntent(kind="status_check", urgency=urgency, sentiment=sentiment)

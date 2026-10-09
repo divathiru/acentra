@@ -13,14 +13,26 @@ def test_rbac_billing_supervisor():
         version_id = get_active_version_id(session)
         assert version_id is not None, "Graph must be seeded"
         
-        # Find a node that requires "Billing Supervisor"
-        res = session.execute(
-            select(Node.id)
-            .join(NodeVisibility, Node.id == NodeVisibility.node_id)
-            .where(NodeVisibility.role_id == "Billing Supervisor")
+        # Create a test node requiring "Billing Supervisor" in the active version
+        restricted_node = Node(
+            version_id=version_id,
+            type="policy",
+            title="Billing Supervisor Only Node",
+            body="Secret billing stuff",
+            status="approved"
         )
-        restricted_node_id = res.scalar()
-        assert restricted_node_id is not None, "Missing Billing Supervisor node in test data"
+        session.add(restricted_node)
+        session.flush()
+        
+        vis = NodeVisibility(
+            node_id=restricted_node.id,
+            version_id=version_id,
+            role_id="Billing Supervisor"
+        )
+        session.add(vis)
+        session.commit()
+        
+        restricted_node_id = restricted_node.id
         
         # Test visibility for 'Billing'
         res_billing = session.execute(
@@ -40,14 +52,26 @@ def test_rbac_billing_supervisor():
         )
         assert res_supervisor.scalars().first() is not None, "Billing Supervisor role should see this node"
         
-        # Also verify that a generic node (visible to ALL) is visible to 'Billing'
-        res = session.execute(
-            select(Node.id)
-            .join(NodeVisibility, Node.id == NodeVisibility.node_id)
-            .where(NodeVisibility.role_id == "ALL")
-            .limit(1)
+        # Create a generic node (visible to ALL)
+        generic_node = Node(
+            version_id=version_id,
+            type="policy",
+            title="Generic Node",
+            body="Public info",
+            status="approved"
         )
-        generic_node_id = res.scalar()
+        session.add(generic_node)
+        session.flush()
+        
+        vis_all = NodeVisibility(
+            node_id=generic_node.id,
+            version_id=version_id,
+            role_id="ALL"
+        )
+        session.add(vis_all)
+        session.commit()
+        
+        generic_node_id = generic_node.id
         
         res_generic = session.execute(
             select(Node).where(

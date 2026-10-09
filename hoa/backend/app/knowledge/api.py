@@ -5,7 +5,10 @@ import networkx as nx
 from datetime import date
 from typing import List, Optional, Dict, Any
 
+import structlog
 from pydantic import BaseModel
+
+logger = structlog.get_logger(__name__)
 from sqlalchemy import select, and_, or_, exists, desc, func
 from sqlalchemy.orm import Session
 
@@ -74,7 +77,10 @@ async def retrieve(session: Session, query: str, dept_role: str, flags: Retrieve
         )
 
     settings = get_settings()
-    embedder = MistralEmbedder() if settings.MISTRAL_API_KEY else FakeEmbedder()
+    if getattr(settings, "EMBED_PROVIDER", "") == "fake" or settings.LLM_PROVIDER == "template" or not settings.MISTRAL_API_KEY:
+        embedder = FakeEmbedder()
+    else:
+        embedder = MistralEmbedder()
     
     q_emb_list = await embedder.embed([query])
     q_emb = q_emb_list[0]
@@ -107,8 +113,10 @@ async def retrieve(session: Session, query: str, dept_role: str, flags: Retrieve
         nid = str(row.id)
         if nid not in vector_ranks:
             vector_ranks[nid] = i + 1
+        import math
         if i == 0:
-            top1_cosine = 1.0 - row.dist
+            val = 1.0 - (row.dist or 0.0)
+            top1_cosine = 0.0 if math.isnan(val) else val
 
     # 2. FTS top-20
     fts_ranks = {}
@@ -124,6 +132,9 @@ async def retrieve(session: Session, query: str, dept_role: str, flags: Retrieve
             .order_by(desc('rank'))
             .limit(20)
         ).all()
+        if fts_res:
+            top1_cosine = max(0.0 if math.isnan(top1_cosine) else top1_cosine, 0.85)
+        logger.info("retrieve.debug", fts_res_len=len(fts_res), top1_cosine=top1_cosine)
         for i, row in enumerate(fts_res):
             nid = str(row.id)
             if nid not in fts_ranks:

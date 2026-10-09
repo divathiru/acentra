@@ -1,0 +1,112 @@
+name: HOA CI & Evaluation Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    - cron: '0 0 * * *'  # Nightly at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  test-and-safety:
+    name: Run Unit Tests & Safety Suite
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_DB: hoa_db
+          POSTGRES_USER: hoa_user
+          POSTGRES_PASSWORD: hoa_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+          pip install pytest pytest-asyncio rapidfuzz httpx structlog pydantic sqlalchemy alembic psycopg2-binary pgvector networkx
+
+      - name: Run Database Migrations
+        env:
+          DATABASE_URL: postgresql://hoa_user:hoa_password@localhost:5432/hoa_db
+          PYTHONPATH: backend
+        run: |
+          cd backend && alembic upgrade head
+
+      - name: Run Unit Tests & Safety Suite (Must be 100% pass)
+        env:
+          DATABASE_URL: postgresql://hoa_user:hoa_password@localhost:5432/hoa_db
+          PYTHONPATH: backend
+          LLM_PROVIDER: template
+        run: |
+          pytest backend/tests/ -v
+
+  evaluation-nightly:
+    name: Nightly Evaluation Benchmark & Proof of Value
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: test-and-safety
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_DB: hoa_db
+          POSTGRES_USER: hoa_user
+          POSTGRES_PASSWORD: hoa_password
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+          pip install pytest pytest-asyncio rapidfuzz httpx structlog pydantic sqlalchemy alembic psycopg2-binary pgvector networkx openpyxl numpy
+
+      - name: Run Migrations & Seed DB
+        env:
+          DATABASE_URL: postgresql://hoa_user:hoa_password@localhost:5432/hoa_db
+          PYTHONPATH: backend
+        run: |
+          cd backend && alembic upgrade head
+          python -m app.seed
+
+      - name: Run Evaluation Harness (Must be >= 90% routing accuracy)
+        env:
+          DATABASE_URL: postgresql://hoa_user:hoa_password@localhost:5432/hoa_db
+          PYTHONPATH: backend
+          LLM_PROVIDER: template
+        run: |
+          python -m app.eval.cli --strict

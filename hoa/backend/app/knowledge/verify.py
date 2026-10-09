@@ -17,6 +17,16 @@ def verify_evidence(bundle: EvidenceBundle, expected_entities: int, resolved_ent
         - reasons: list of strings
     """
     
+    nodes_attr = getattr(bundle, "nodes", None)
+    if nodes_attr is not None and not nodes_attr:
+        return {
+            "score": 0.0,
+            "band": "low",
+            "conflict": False,
+            "coverage": {k: False for k in ["WHAT", "WHERE", "NEXT", "WHO", "HOW"]},
+            "reasons": ["No relevant evidence nodes found"]
+        }
+
     cov = {
         "WHAT": any(e["type"] == "defined_in" for e in bundle.edges),
         "WHERE": any(e["type"] in ["requires_form", "performed_in"] for e in bundle.edges),
@@ -44,9 +54,9 @@ def verify_evidence(bundle: EvidenceBundle, expected_entities: int, resolved_ent
     band_high = config.get("verify_band_high", 0.70)
     band_medium = config.get("verify_band_medium", 0.45)
     
-    if score >= band_high:
+    if score >= band_high and sim >= 0.3:
         band = "high"
-    elif score >= band_medium:
+    elif score >= band_medium and (sim >= 0.25 or coverage_score > 0):
         band = "medium"
     else:
         band = "low"

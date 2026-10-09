@@ -1,4 +1,8 @@
-.PHONY: up down migrate seed test demo-reset lint-imports
+.PHONY: up down migrate seed test eval demo-reset lint-imports
+
+eval:
+	docker compose exec api python -m app.eval.cli
+
 
 up:
 	docker compose up --build -d
@@ -14,6 +18,9 @@ seed:
 
 test:
 	docker compose exec api python -m pytest tests/ -v
+
+demo-data:
+	docker compose exec api python -m app.demo_data
 
 demo-reset:
 	docker compose down -v

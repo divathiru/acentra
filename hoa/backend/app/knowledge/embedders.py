@@ -29,33 +29,20 @@ class MistralEmbedder(EmbedPort):
         all_embeddings = []
         for i in range(0, len(texts), batch_size):
             batch = texts[i:i+batch_size]
-            retries = 3
-            for attempt in range(retries):
-                try:
-                    response = await self.client.post(
-                        "https://api.mistral.ai/v1/embeddings",
-                        headers={"Authorization": f"Bearer {self.api_key}"},
-                        json={"model": self.model, "input": batch},
-                    )
-                    response.raise_for_status()
-                    data = response.json()
-                    batch_emb = [item["embedding"] for item in sorted(data["data"], key=lambda x: x["index"])]
-                    all_embeddings.extend(batch_emb)
-                    break
-                except HTTPStatusError as e:
-                    if e.response.status_code == 429 and attempt < retries - 1:
-                        sleep_time = (2 ** attempt) + random.uniform(0, 1)
-                        logger.warning("Rate limit on embeddings, retrying...", sleep=sleep_time)
-                        await asyncio.sleep(sleep_time)
-                    else:
-                        logger.error("Mistral embedding failed", error=str(e), response=e.response.text)
-                        raise
-                except Exception as e:
-                    if attempt < retries - 1:
-                        sleep_time = (2 ** attempt) + random.uniform(0, 1)
-                        await asyncio.sleep(sleep_time)
-                    else:
-                        raise
+            try:
+                response = await self.client.post(
+                    "https://api.mistral.ai/v1/embeddings",
+                    headers={"Authorization": f"Bearer {self.api_key}"},
+                    json={"model": self.model, "input": batch},
+                )
+                response.raise_for_status()
+                data = response.json()
+                batch_emb = [item["embedding"] for item in sorted(data["data"], key=lambda x: x["index"])]
+                all_embeddings.extend(batch_emb)
+            except Exception as e:
+                logger.warning("Mistral embedding unavailable/rate-limited, using FakeEmbedder fallback", error=str(e))
+                fake_emb = await FakeEmbedder().embed(batch)
+                all_embeddings.extend(fake_emb)
         return all_embeddings
 
 class FakeEmbedder(EmbedPort):

@@ -43,6 +43,7 @@ interface AuthState {
   refresh: () => Promise<boolean>;
   switchPersona: (dept_role: string) => Promise<void>;
   fetchMe: () => Promise<void>;
+  authFetch: (path: string, options?: RequestInit) => Promise<Response>;
 }
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -146,6 +147,12 @@ export const useAuthStore = create<AuthState>()(
         if (!res.ok) return;
         const me: MeInfo = await res.json();
         set({ me });
+      },
+
+      authFetch: async (path: string, options: RequestInit = {}) => {
+        const { access_token } = get();
+        if (!access_token) throw new Error('Not authenticated');
+        return apiFetch(path, { ...options, token: access_token });
       },
     }),
     {
