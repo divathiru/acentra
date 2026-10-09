@@ -76,15 +76,17 @@ async def test_retrieval_restrictions():
         # Since it depends on the embeddings (which are fake or random), we might not hit it directly with "conflict"
         # We'll just do a manual retrieve overriding the query to match a known conflict node id? No, `retrieve` uses semantic search.
         
-        # Let's find a conflict node and inject its exact text to query
+        # Let's find a conflict node and query its exact chunk text to guarantee a vector match
         conflict_edge = session.execute(select(Edge).where(Edge.type == "conflicts_with", Edge.version_id == version_id)).scalars().first()
         if conflict_edge:
             conflict_node = session.execute(select(Node).where(Node.id == conflict_edge.from_id, Node.version_id == version_id)).scalar_one()
-            bundle_conflict = await retrieve(session, conflict_node.title, "ALL", flags)
+            chunk = session.execute(select(NodeChunk).where(NodeChunk.node_id == conflict_node.id)).scalars().first()
             
-            # Now we expect conflict flag to be true if it expanded to both or the edge was found.
-            # wait, conflict flag is set if ANY expanded node has a conflicts_with edge pointing out of it.
-            # so as long as the conflict_node is in entry nodes, it will be flagged.
+            # Query the exact chunk text so FakeEmbedder hashes perfectly
+            query_text = chunk.text if chunk else conflict_node.title
+            
+            flags = RetrieveFlags(use_fts=False, use_graph=True)
+            bundle_conflict = await retrieve(session, query_text, "ALL", flags)
+            
             assert bundle_conflict.conflict_flag is True
             assert len(bundle_conflict.conflict_owners) > 0
-            

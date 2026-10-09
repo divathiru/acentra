@@ -68,19 +68,25 @@ def seed_users(db: Session) -> None:
             db.flush()
         role_map[role_name] = dr
 
-    # Remove existing demo users (idempotent)
+    # Upsert demo users (idempotent, preserves UUIDs so FKs don't break)
     demo_emails = [email for email, *_ in DEMO_USERS]
     existing = db.execute(select(User).where(User.email.in_(demo_emails))).scalars().all()
-    for u in existing:
-        db.execute(delete(UserDeptRole).where(UserDeptRole.user_id == u.id))
-        db.delete(u)
-    db.flush()
-
-    # Create fresh
+    existing_map = {u.email: u for u in existing}
+    
     hashed_pw = hash_password(DEMO_PASSWORD)
+    
     for email, name, app_role, dept_roles_list in DEMO_USERS:
-        user = User(email=email, name=name, app_role=app_role, password_hash=hashed_pw)
-        db.add(user)
+        if email in existing_map:
+            user = existing_map[email]
+            user.name = name
+            user.app_role = app_role
+            user.password_hash = hashed_pw
+            # Clear existing dept roles for this user
+            db.execute(delete(UserDeptRole).where(UserDeptRole.user_id == user.id))
+        else:
+            user = User(email=email, name=name, app_role=app_role, password_hash=hashed_pw)
+            db.add(user)
+            
         db.flush()
 
         for role_name in dept_roles_list:

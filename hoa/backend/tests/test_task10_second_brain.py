@@ -96,6 +96,7 @@ async def test_end_to_end_routed_gap_to_approved_answer(db_session):
         dept_role="ALL",
         session=db_session,
         llm=TemplateAdapter(),
+        override_config={"verify_band_medium": 0.99, "verify_band_high": 0.99},
     )
 
     assert resp1.outcome in ("ROUTE", "REFUSE")
