@@ -9,15 +9,18 @@ from typing import Annotated, Optional
 import structlog
 from fastapi import Depends, FastAPI, Header, HTTPException, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, JSONResponse
 from pydantic import BaseModel
 from sqlalchemy import select, text
+from slowapi import _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
 
 from app.core.config import get_settings
 from app.core.database import SessionLocal
 from app.core.deps import TokenClaims, require_perm, get_db
 from app.core.logging import setup_logging
 from app.core.auth_router import router as auth_router
+from app.core.rate_limit import limiter
 
 
 @asynccontextmanager
@@ -35,14 +38,18 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# ── CORS ──
+# ── Rate limiting ──
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# ── CORS — locked to env-configured origins only ──
 settings = get_settings()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Request-ID", "Idempotency-Key"],
 )
 
 
@@ -113,7 +120,9 @@ class ChatRequest(BaseModel):
 
 
 @_chat_router.post("", response_model=None)
+@limiter.limit("30/minute")
 async def chat(
+    request: Request,
     body: ChatRequest,
     claims: Annotated[TokenClaims, Depends(require_perm("chat:use"))],
     db: Annotated[object, Depends(get_db)],

@@ -14,7 +14,7 @@ from typing import Annotated
 
 import jwt
 import structlog
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from pydantic import BaseModel
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -28,6 +28,7 @@ from app.core.security import (
     decode_token,
     verify_password,
 )
+from app.core.rate_limit import limiter
 from app.audit.api import write_audit_event
 
 logger = structlog.get_logger(__name__)
@@ -106,7 +107,8 @@ def _issue_tokens(db: Session, user: User, active_dept_role: str) -> LoginRespon
 # ── POST /auth/login ──────────────────────────────────────────────────────────
 
 @router.post("/login", response_model=LoginResponse)
-def login(body: LoginRequest, db: Session = Depends(get_db)):
+@limiter.limit("10/minute")
+def login(request: Request, body: LoginRequest, db: Session = Depends(get_db)):
     user = db.execute(select(User).where(User.email == body.email)).scalar_one_or_none()
     if user is None or not user.active:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid credentials")

@@ -19,17 +19,10 @@ seed:
 test:
 	docker compose exec api python -m pytest tests/ -v
 
-demo-data:
-	docker compose exec api python -m app.demo_data
+demo-data: demo-reset
 
 demo-reset:
-	docker compose down -v
-	docker compose up --build -d
-	@echo "Waiting for DB..."
-	@sleep 5
-	$(MAKE) migrate
-	$(MAKE) seed
-	@echo "Demo reset complete."
+	docker compose exec api python -m app.demo_data
 
 lint-imports:
 	docker compose exec api lint-imports
